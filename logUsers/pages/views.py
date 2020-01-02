@@ -23,41 +23,6 @@ def signup(request):
     else:
         form = SignUpForm()
         return render(request, 'pages/signup.html', {'form': form})
-# def signup(request):
-    #     if request.method == 'POST':
-    #         form = SignUpForm(request.POST)
-    #         if form.is_valid():
-    #             user = form.save()
-    #             # Person.objects.create(first_name=first, last_name=last, username=username, password=password)
-    #             # username = form.cleaned_data.get('username')
-    #             # password = form.cleaned_data.get('password1')
-    #             # user = authenticate(username=username, password=password)
-    #             # login(request, user)
-    #             return redirect('home')
-
-# def sign_in(request):
-#     if request.method == 'POST':
-#         form = AuthenticationForm(request=request, data=request.POST)
-#         if form.is_valid():
-#             username = form.cleaned_data.get('username')
-#             password = form.cleaned_data.get('password')
-#             user = authenticate(username=username, password=password)
-#             if user is not None:
-#                 request.session.set_expiry(86400)
-#                 login(request, user)
-#                 return redirect('home')
-#             else:
-#                 messages.error(request, "Invalid username or password.")
-#         else:
-#             messages.error(request, "Invalid username or password.")
-#     form = AuthenticationForm()
-#     return render(request, "pages/signin.html", {'form': form})
-
-# def log_out(request):
-#     if request.method == 'POST':
-#         logout(request)
-#         return redirect('sign-in')
-#     return render(request, "pages/logout.css", {})
 
 @login_required
 def home(request):
@@ -149,11 +114,6 @@ def edit_profile(request):
         data=request.POST,
         user=request.user,
         instance=request.user,
-        # initial={
-        #     'first_name': user.first_name,
-        #     'last_name': user.last_name,
-        #     'email': user.email
-        # }
     )
 
     if request.method == 'POST':
