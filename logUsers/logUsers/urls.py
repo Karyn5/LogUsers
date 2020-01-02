@@ -31,7 +31,7 @@ urlpatterns = [
     path('profile/edit/password', change_password, name='change-password'),
     path('people/list/', people_list, name="people-list"),
     path('people/<int:id>/', person_log, name="person-log"),
-    path('people/logs/', all_logs, name='all-logs'),
+    path('people/logs/', all_logs, name='all-logs')
 
 ]
 
