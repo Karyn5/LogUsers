@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{person.first_name}} {{person.last_name}} Log</title>
+</head>
+<body>
+    <h1>{{person.first_name}} {{person.last_name}} ({{person.id}}) Log</h1>
+    <table>
+        <tr>
+            <th>Log ID</th>
+            <th>Time in</th>
+            <th>Time out</th>
+        </tr>
+        {% for instance in logs %}
+            <tr>
+                <th>{{instance.logId}}</th>
+                <th>{{instance.timeIn}}</th>
+                <th>{{instance.timeOut}}</th>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

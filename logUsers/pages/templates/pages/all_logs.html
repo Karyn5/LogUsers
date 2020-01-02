@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All Logs</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>Log ID</th>
+            <th>Person ID</th>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>TimeIn</th>
+            <th>TimeOut</th>
+
+        </tr>
+        {% for instance in logs %}
+            <tr>
+                <th>{{instance.logId}}</th>
+                <th>{{instance.personId}}</th>
+                {% filter people| person.id == instance.personId%}
+                        <th>{{ people.first_name }}</th>
+                        <th>{{people.last_name}}</th>
+                    {% endif %}
+                {% endfor %}
+                <th>{{instance.timeIn}}</th>
+                <th>{{instance.timeOut}}</th>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

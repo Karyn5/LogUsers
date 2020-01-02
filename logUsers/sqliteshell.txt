@@ -1,0 +1,65 @@
+C:\Users\PC\logUsers>python manage.py dbshell
+sqlite> attach "db.sqlite3" as dblogUsers;
+sqlite> .open "db.sqlite3"
+sqlite> .databases
+seq  name             file
+
+---  ---------------  -----------------------------------
+
+0    main             C:\Users\PC\logUsers\db.sqlite3
+sqlite> .tables
+auth_group                  django_admin_log
+auth_group_permissions      django_content_type
+auth_permission             django_migrations
+auth_user                   django_session
+auth_user_groups            pages_person
+auth_user_user_permissions  pages_personlog
+sqlite> SELECT * FROM pages_person;
+8|Rachel|Green|rachel|
+9|Monica|Geller|monica|
+sqlite> SELECT * FROM pages_personLog;
+1|2019-12-08 03:16:22.215200|2019-12-08 03:16:22.210200|9
+2|2019-12-08 03:17:26.653200|2019-12-08 03:17:26.644200|9
+3|2019-12-08 03:17:35.638200||9
+4|2019-12-08 03:21:46.999200|2019-12-08 03:21:46.990200|8
+sqlite> select * from sqlite_sequence;
+django_migrations|26
+django_admin_log|0
+django_content_type|10
+auth_permission|40
+auth_user|9
+pages_person|9
+pages_personlog|7
+sqlite> PRAGMA table_info(sqlite_sequence);
+0|name||0||0
+1|seq||0||0
+sqlite> delete from pages_personLog;
+sqlite> select * From pages_personLog;
+sqlite> update sqlite_sequence set seq = 0 where name = 'pages_personlog';
+sqlite> select * from sqlite_sequence;
+django_migrations|26
+django_admin_log|0
+django_content_type|10
+auth_permission|40
+auth_user|9
+pages_person|9
+pages_personlog|0
+(logged back into website as Rachel/rachrachrach & recorded a personLog time)
+sqlite> select * from pages_personLog;
+1|2019-12-11 01:17:37.824000||8
+(delete from auth_user)
+sqlite> delete from auth_user;
+sqlite> select * From auth_user;
+sqlite> update sqlite_sequence set seq = 0 where name = 'auth_user';
+sqlite> select * From auth_user;
+sqlite> select * From sqlite_sequence
+   ...> select * From sqlite_sequence;
+Error: near "select": syntax error
+sqlite> select * From sqlite_sequence;
+django_migrations|26
+django_admin_log|0
+django_content_type|10
+auth_permission|40
+auth_user|0
+pages_person|1
+pages_personlog|0

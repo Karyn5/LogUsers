@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Edit Profile</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://unpkg.com/feather-icons"></script>
+    <!--<link href="{% static 'css/edit_profile.css' %}" rel="stylesheet"> -->
+</head>
+
+<body class="text-center">
+    <div class="d-flex flex-column vw-100 vh-100 justify-content-center align-items-center">
+         <div class="border border-primary rounded-lg shadow-lg p-3 mb-5 bg-white rounded">
+                <div class="m-3">
+                    <div>
+                        <i data-feather="user"></i>
+                    </div>
+
+                    <div>
+                        <h1 class="h3 mb-3 font-weight-normal">Edit Profile</h1>
+                    </div>
+
+                    <div>
+                        <form method="post">
+                            {% csrf_token %}
+
+                            {% for field in form %}
+                            <div class="p-2">
+                                {{field.label}} {{ field }}
+                            </div>
+                            {% endfor %}
+
+                            <a href="/profile/edit/password" class="change-password">Change Password</a>
+
+                            <div class="p-2"> {{ form.errors }} </div>
+
+                            <div class="mb-2">
+                                <button class="btn btn-lg btn-primary btn-block" type="submit">Save Changes</button>
+                            </div>
+                        </form>
+                    </div>
+                    <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
+                </div>
+         </div>
+    </div>
+    <script>
+      feather.replace()
+    </script>
+</body>
+</html>

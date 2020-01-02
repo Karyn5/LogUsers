@@ -1,0 +1,49 @@
+AFTER EXECUTING " if (lastObj...) else:"
+
+	ATIME IN
+	2020-01-01 23:51:51.119000
+	ATIME OUT
+	None
+
+	BTIME IN
+	2020-01-02 04:51:51.134000+00:00
+	BTIME OUT
+	None
+
+	CTIME IN
+	2020-01-02 04:51:51.134000+00:00
+	CTIME OUT
+	None
+
+AFTER EXECUTING "if (lastObj.timeOut is None):"
+
+	1TIME IN
+	2020-01-02 04:51:51.134000+00:00
+	1TIME OUT
+	None
+
+	2TIME IN
+	2020-01-02 04:51:51.134000+00:00
+	2TIME OUT
+	None
+
+	3TIME IN
+	2020-01-02 04:51:51.134000+00:00
+	3TIME OUT
+	2020-01-01 23:53:46.051000
+
+	4TIME IN
+	2020-01-02 04:53:46.069000+00:00
+	4TIME OUT
+	2020-01-01 23:53:46.051000
+
+RECORDS ON DASHBOARD
+execute else: 	Jan 1 2020, 11:51pm	None
+execute isNone: Jan 1 2020, 11:53pm 	Jan 1 2020, 11:53pm
+
+RUNTIME WARNING
+
+C:\Users\PC\venv\lib\site-packages\django\db\models\fields\__init__.py:1364: Run
+timeWarning: DateTimeField PersonLog.timeOut received a naive datetime (2020-01-
+01 23:53:46.051000) while time zone support is active.
+  RuntimeWarning)

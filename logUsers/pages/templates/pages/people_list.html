@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>People List</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>Person ID</th>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Email</th>
+            <th>Username</th>
+            <th>Password</th>
+
+        </tr>
+        {% for instance in people_list %}
+            <tr>
+                <th>{{instance.id}}</th>
+                <th>{{instance.first_name}}</th>
+                <th>{{instance.last_name}}</th>
+                <th>{{instance.email}}</th>
+                <th>{{instance.username}}</th>
+                <th>{{instance.password}}</th>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
