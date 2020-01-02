@@ -17,7 +17,7 @@
         </tr>
         {% for instance in logs %}
             <tr>
-                <th>{{instance.logId}}</th>
+                <th>{{instance.id}}</th>
                 <th>{{instance.personId}}</th>
                 {% filter people| person.id == instance.personId%}
                         <th>{{ people.first_name }}</th>
