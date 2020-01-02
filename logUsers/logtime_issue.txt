@@ -47,3 +47,12 @@ C:\Users\PC\venv\lib\site-packages\django\db\models\fields\__init__.py:1364: Run
 timeWarning: DateTimeField PersonLog.timeOut received a naive datetime (2020-01-
 01 23:53:46.051000) while time zone support is active.
   RuntimeWarning)
+  
+DATA ANALYSIS
+
+p.save() changes the timeIn from an accurate 23:42 to 4:42 (23 to 4)
+lastObj.save() changes timeIn to match timeOut's min/secs, keeps the 1-2 date for timeIn, and keeps timeOut equal to time (accurate 23, not 4)
+
+FIXED CODE SECTION
+#lastObj.save()     <-- this changed timeIn to match timeOUt
+lastObj.save(update_fields=['timeOut'])
