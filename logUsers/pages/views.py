@@ -90,7 +90,9 @@ def home(request):
                     print("3TIME OUT ")
                     print(lastObj.timeOut)
 
-                    lastObj.save()
+                    #lastObj.save()     <-- this changed timeIn to match timeOUt
+                    lastObj.save(update_fields=['timeOut'])
+                    
                     print("4TIME IN ")
                     print(lastObj.timeIn)
                     print("4TIME OUT ")
